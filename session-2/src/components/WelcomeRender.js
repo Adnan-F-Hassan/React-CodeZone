@@ -12,6 +12,14 @@ class WelcomeRender extends React.Component {
             <>
             <h1> Welcome Rendering Component, {this.props.name}</h1>
             <h6> stated by: {this.state.firstName} {this.state.LastName}</h6>
+            <button
+                onClick = {() =>{
+                    this.setState({
+                        lastName: "Hassan"
+                    });
+                }}
+            > Change Last Name
+            </button>
             </>
         )
     }
