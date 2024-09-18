@@ -2,11 +2,14 @@
 import './App.css';
 
 function App() {
+  const name = "Eden Farid"
+  const element = <h2>hi, {name}</h2>
 
   return (
     <div className='App'>
       <h1> Hello World</h1>
-      <h2>"Eden"</h2>
+      {element}
+      {/* <h2>"Eden"</h2> */}
       </div>
   );
 
