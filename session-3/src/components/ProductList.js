@@ -1,5 +1,6 @@
 import productsData from "../products-data";
-import Product from "./Product";
+import Product from "./Product.js";
+import "./ProductsList.css";
 
 function ProductsList() {
 
