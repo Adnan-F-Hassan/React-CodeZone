@@ -1,6 +1,9 @@
 function List(props) {
-    const arr = ["html", "css", "JS"]
-    const li = arr.map((el) =>    <li>{el}</li>  )
+    const arr = [{id:1, name:"html"},{id:2, name: "css"}, {id:3,name:"JS"}]
+    const li = arr.map((el) =>  ( 
+       <li key = {el.id} >{el.name}</li>
+
+    ))
       return (
         <ul> {li} </ul>
     )
