@@ -6,7 +6,7 @@ function CounterFc() {
 
     useEffect(() => {
         document.title = `you clicked ${counter} times`; 
-    })
+    }, []) // el array fel a5er da dependency list,. means that el 7aga elly bte3tmed 3leeha el useEffect 34an t-rerender  
 
     return (
         <>
