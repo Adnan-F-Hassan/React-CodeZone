@@ -5,20 +5,29 @@ import "./ProductsList.css";
 
 function ProductsList() {
 
+    const [products, setProducts] = useState([]);
+
     useEffect(() => {
-        fetch('https://fakestoreapi.com/products').then((response) => response.json()).then((data) => console.log(data))
+        fetch('https://fakestoreapi.com/products')
+        .then((response) => response.json())
+        .then((data) => setProducts(data))
         
-    })
+    } , [])
 
 
-    // const products = [].map((product) => {
-    //     return product.price < 100 && <Product key={product.id} product= {product}   />;
+    const productsData = products.map((product) => {
+        return product.price < 100 && (
+        <Product key={product.id} product= {product}   /> 
+        );
         
-    // });
+    });
 
-    return  <div className = "products-List">
-            {/* {Product} */}
-        </div>;
-}
+    return  (
+    <div className = "products-List">
+    <div className = "row"> 
+            {ProductsData}
+        </div>
+        </div>
+)}
 
 export default ProductsList;
