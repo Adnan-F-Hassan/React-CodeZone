@@ -25,8 +25,8 @@ function ProductsList() {
     return  (
     <div className = "products-List">
     <div className = "row"> 
-            {ProductsData}
-        </div>  
+            {productsData}
+        </div>
         </div>
 )}
 
