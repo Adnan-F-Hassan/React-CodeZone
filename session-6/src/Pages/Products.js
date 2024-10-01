@@ -1,5 +1,8 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import Swal from "sweetalert2";
+
+
 
 import './Products.css';
 
@@ -19,13 +22,21 @@ function Products(){
     }
 
 
-    const deleteProduct = (productId) => { 
-        fetch(`http://localhost:9000/products/${productId}`, {
-            method:"DELETE"
+    const deleteProduct = (product) => { 
+        Swal.fire({
+            title: `Are You Sure You Want To Delete ${product.title} ?`,
+            showCancelButton: true
         })
-        .then((res) => res.json())
         .then((data) => {
-            getAllProducts()
+            if (data.isConfirmed){
+                fetch(`http://localhost:9000/products/${product.id}`, {
+                    method:"DELETE"
+                })
+                .then((res) => res.json())
+                .then((data) => {
+                    getAllProducts()
+                })
+            }
         })
     }
 
@@ -52,7 +63,7 @@ function Products(){
                                 <td>{product.description.slice(0,20)}...</td>
                                 <td>{product.price}</td>
                                 <td>
-                                    <button className="btn btn-danger btn-sm" onClick={() => deleteProduct(product.id)}>Delete</button>
+                                    <button className="btn btn-danger btn-sm" onClick={() => deleteProduct(product)}>Delete</button>
                                     <Link to={`/products/${product.id}`} className="btn btn-info btn-sm">View</Link>
                                     <button className="btn btn-primary btn-sm">Edit</button>
                                 </td>
