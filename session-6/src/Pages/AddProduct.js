@@ -12,7 +12,7 @@ function AddProduct(){
     const formSubmit = (e) => {
         e.preventDefault()
 
-        axios.post(`http://localhost:9000/products/${product.id}`, {
+        axios.post(`http://localhost:9000/products`, {
                 title, 
                 price
             })
@@ -20,7 +20,7 @@ function AddProduct(){
                 navigate('/products')
             })
 
-        // fetch(`http://localhost:9000/products/${product.id}`, {
+        // fetch(`http://localhost:9000/products`, {
         //     method:"POST",
         //     headers: {
         //         "Content-Type": "Application/json",
@@ -32,7 +32,7 @@ function AddProduct(){
         // })
         // .then((res) => res.json())
         // .then((data) => {
-        //     getAllProducts()
+        //     navigate('/products')
         // })
         
     }
@@ -68,10 +68,6 @@ function AddProduct(){
                     onChange={(e) => setPrice(e.target.value)}
                 />
             </div>
-
-
-
-
 
             <button type="submit" className="btn btn-primary">Add Product</button>
 
