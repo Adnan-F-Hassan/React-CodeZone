@@ -7,6 +7,7 @@ import Products from './Pages/Products';
 
 function App() {
   return (
+    <>
     <div className="App">
       <Navbar />
       <div className='row'>
@@ -22,6 +23,7 @@ function App() {
         </div>
       </div>
     </div>
+    </>
   );
 }
 
