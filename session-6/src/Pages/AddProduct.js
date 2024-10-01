@@ -22,6 +22,9 @@ function AddProduct(){
 
         // fetch(`http://localhost:9000/products/${product.id}`, {
         //     method:"POST",
+        //     headers: {
+        //         "Content-Type": "Application/json",
+        //     },
         //     body: JSON.stringify({
         //         title, 
         //         price
