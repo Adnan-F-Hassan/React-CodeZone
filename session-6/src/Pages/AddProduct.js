@@ -1,10 +1,13 @@
 import { useState } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 function AddProduct(){
 
     const[title, setTitle] = useState('');
     const[price, setPrice] = useState(0);
+
+    let navigate = useNavigate();
 
     const formSubmit = (e) => {
         e.preventDefault()
@@ -13,7 +16,8 @@ function AddProduct(){
                 title, 
                 price
             })
-            .then((data) => {console.log(data);
+            .then((data) => {
+                navigate('/products')
             })
 
         // fetch(`http://localhost:9000/products/${product.id}`, {
