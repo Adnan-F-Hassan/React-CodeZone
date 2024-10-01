@@ -1,4 +1,4 @@
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Outlet } from "react-router-dom";
 import './App.css';
 import Navbar from './components/Navbar';
 import Sidebar from './components/Sidebar';
@@ -20,7 +20,10 @@ function App() {
           <Routes>
             <Route path = "/" element = {<Home />} />
             {/* <Route path = "about" element = {<About />} /> */}
-            <Route path = "products" element = {<Products />}>
+            <Route path = "products" element = {<>
+                <Outlet />
+              </> }>
+              <Route path = "" element = {<Products />} />
               <Route path = "add" element = {<AddProduct />} />
               <Route path = ":ProductID" element = {<ProductDetails />} />
             </Route>
