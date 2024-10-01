@@ -7,13 +7,27 @@ function Products(){
 
     const [products,setProducts] = useState([]);
     useEffect(() => {
+        getAllProducts()
+    }, [])
+
+    const getAllProducts = (productId) => { 
         fetch('http://localhost:9000/products')
         .then((res) => res.json())
         .then((date) =>{
             setProducts()
         })
-    }, [])
+    }
 
+
+    const deleteProduct = (productId) => { 
+        fetch(`http://localhost:9000/products/${productId}`, {
+            method:"DELETE"
+        })
+        .then((res) => res.json())
+        .then((data) => {
+            getAllProducts()
+        })
+    }
 
     return (
         <>
@@ -38,7 +52,7 @@ function Products(){
                                 <td>{product.description.slice(0,20)}...</td>
                                 <td>{product.price}</td>
                                 <td>
-                                    <button className="btn btn-danger btn-sm">Delete</button>
+                                    <button className="btn btn-danger btn-sm" onClick={() => deleteProduct(product.id)}>Delete</button>
                                     <Link to={`/products/${product.id}`} className="btn btn-info btn-sm">View</Link>
                                     <button className="btn btn-primary btn-sm">Edit</button>
                                 </td>
