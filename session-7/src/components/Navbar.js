@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { ProductsContext } from "../App";
 
-function Navbar(props) {
+function Navbar() {
   
   const value = useContext(ProductsContext)
   
