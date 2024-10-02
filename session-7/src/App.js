@@ -1,10 +1,11 @@
 import logo from './logo.svg';
 import './App.css';
 
-import { useState } from "react";
+import { createContext, useState } from "react";
 import Navbar from './components/Navbar';
 import ProductsList from './components/ProductsList';
 
+export const ProductsContext = createContext() //   () by default undefined ... (null)
 
 function App() {
 
@@ -16,12 +17,14 @@ function App() {
 
 
 
-  return <div className="App">
-      
-    <Navbar count={products.length} />
-    <ProductsList products={products} />
-
-    </div>
+    return (
+      <div className="App">
+        <ProductsContext.Provider value={products}>
+          <Navbar />
+          <ProductsList products={products} />
+        </ProductsContext.Provider>
+      </div>
+    )
 }
 
 export default App;
