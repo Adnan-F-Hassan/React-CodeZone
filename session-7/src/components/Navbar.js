@@ -1,13 +1,17 @@
 import { useContext } from "react";
-import { ProductsContext } from "../App";
+import { ProductsContext } from "../context/ProductsContext";
+import { useRecoilState } from "recoil";
+import productsState from "../atoms/products-atom";
 
-function Navbar() {
+
+function Navbar(props) {
   
-  const value = useContext(ProductsContext)
+  // const value = useContext(ProductsContext)
+  const [products,setProducts] = useRecoilState(productsState)
   
   return (
     <div className="navbar">
-      <h1> Products Count : {value.length} </h1>
+      <h1> Products Count : {products.length} </h1>
     </div>
   );
 }
